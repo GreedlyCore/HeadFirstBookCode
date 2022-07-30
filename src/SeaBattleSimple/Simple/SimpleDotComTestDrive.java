@@ -1,5 +1,6 @@
-package SeaBattleSimple;
+package SeaBattleSimple.Simple;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,7 +12,10 @@ public class SimpleDotComTestDrive {
         Random rand = new Random();
 
         int num = rand.nextInt(length-1);
-        int [] ship = {num, num+1, num+2};
+        ArrayList<String> ship = new ArrayList<String>();
+        ship.add(String.valueOf(num));
+        ship.add(String.valueOf(num+1));
+        ship.add(String.valueOf(num+2));
         game.setShip(ship);
 
         Scanner scanner = new Scanner(System.in);
@@ -23,9 +27,9 @@ public class SimpleDotComTestDrive {
             while (!flag){
                 System.out.println("Введи позицию от 0 до " + (length-1) );
                 try{
-                    int pos = Integer.parseInt(scanner.nextLine());
+                    String chosen = scanner.nextLine();
                     flag = true;
-                    game.doShot(pos);
+                    game.doShot(chosen);
                 } catch (Exception e){
                     System.out.println("Неверный формат данных, попробуй еще раз");
                 }
