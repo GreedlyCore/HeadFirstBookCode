@@ -28,6 +28,7 @@ public class SimpleDotComTestDrive {
                 System.out.println("Введи позицию от 0 до " + (length-1) );
                 try{
                     String chosen = scanner.nextLine();
+                    scanner.close();
                     flag = true;
                     game.doShot(chosen);
                 } catch (Exception e){

@@ -5,11 +5,16 @@ import java.util.ArrayList;
 public class DotComTestDrive {
 
     public static void main(String[] args) {
-        ArrayList<Ship> ships = new ArrayList<Ship>();
+        
+        DotCom dotCom = new DotCom();
+        dotCom.setupGame();
+        
+        GameHelper helper = new GameHelper();
 
-        for (int i = 0; i < 3; i++) {
-            ships.add(new Ship());
+        
+        
+       
 
-        }
+
     }
 }
