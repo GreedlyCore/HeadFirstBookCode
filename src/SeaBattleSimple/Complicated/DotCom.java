@@ -4,66 +4,42 @@ import java.util.ArrayList;
 
 public class DotCom {
 
-    private int attempts;
-    private int hitsCounter;
-    private boolean isFinished;
-    private ArrayList<Ship> ships = new ArrayList<Ship>();
+    private ArrayList<String> locationCells = new ArrayList<String>();
+    private String name;
 
     public DotCom(){
-        this.attempts = 0;
-        this.hitsCounter = 0;
-        this.isFinished = false;
+
     }
 
-    public void setupGame(){
-        
-        
+    public void setLocationCells(ArrayList<String> loc){
+        this.locationCells = loc;
+    }
 
-        Ship one = new Ship();
-        one.setName("Pets.com");
-        Ship two = new Ship();
-        two.setName("Google.com");
-        Ship three = new Ship();
-        three.setName("Amazon.ru");
-        ships.add(one);
-        ships.add(two);
-        ships.add(three);
+    public void setName(String name){
+        this.name = name;
+    }
 
-        System.out.println("Ваша цель - потопить три сайта....");
-        for (Ship elem : ships) {
-            System.out.println(elem.getName());
+
+
+
+    public String  checkUserGuess(String userGuess){
+        //this.attempts++;
+        String result = "Мимо...!";
+        int index = locationCells.indexOf(userGuess);
+
+        if (index >= 0){
+            locationCells.remove(index);
         }
-        System.out.println("За меньшее число попыток! Удачи");
-
-    }
-
-    public void startGame(){
-        while (!ships.isEmpty()){
-            try {
-                String userGuess = GameHelper.getUserInput();
-                checkUserGuess(userGuess);
-            } catch (Exception e) {
-                System.out.println("IOexception " + e);
-            }
-            
-            
+        if ( locationCells.isEmpty() ){
+            result = "Ух ты! Потопил...";
+            System.out.println("Ой! Кажись, вы потопили " + this.name);
+        } else{
+            result = "Попал!";
         }
-        finishGame();
+        return result;
     }
 
-    public void checkUserGuess(String userGuess){
-        this.attempts++;
-        String result = "Мимо..";
-        for (Ship ship : ships) {
-            //ship.getLocation()
-            
-        }
 
-    }
-
-    public void finishGame(){
-
-    }
 
 
 

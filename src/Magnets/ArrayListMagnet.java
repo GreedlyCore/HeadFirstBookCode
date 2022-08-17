@@ -2,6 +2,8 @@ package Magnets;
 
 import java.util.*;
 
+
+
 public class ArrayListMagnet{
 
 

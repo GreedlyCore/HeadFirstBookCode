@@ -7,7 +7,7 @@ public class DotComTestDrive {
     public static void main(String[] args) {
         
         DotCom dotCom = new DotCom();
-        dotCom.setupGame();
+        //dotCom.setupGame();
         
         GameHelper helper = new GameHelper();
 
